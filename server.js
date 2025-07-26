@@ -1,13 +1,13 @@
-const express = require("express");
+const express = require('express');
+const path = require('path');
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static(__dirname));
+// Sert les fichiers HTML/CSS/JS du dossier public (ou src)
+app.use(express.static(path.join(__dirname, 'src')));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+// Démarre le serveur
+app.listen(port, () => {
+  console.log(`Panel bot en ligne sur le port ${port}`);
 });
-
-app.listen(PORT, () => {
-  console.log(`Panel lancé sur le port ${PORT}`);
-});￼Enter
