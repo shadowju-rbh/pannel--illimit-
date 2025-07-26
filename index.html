@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Bots Illimités</title>
+  <style>
+    body { font-family: Arial; background-color: #1e1e1e; color: #f0f0f0; text-align: center; padding: 50px; }
+    .bot { border: 1px solid #444; padding: 20px; margin: 10px; background-color: #2c2c2c; border-radius: 10px; }
+    .btn { padding: 10px 20px; margin-top: 10px; background: #00aa88; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🎛️ Mon Panel Illimité de Bots</h1>
+  <div id="bots"></div>
+  <button class="btn" onclick="ajouterBot()">➕ Ajouter un Bot</button>
+
+  <script>
+    let bots = [];
+
+    function afficherBots() {
+      const div = document.getElementById('bots');
+      div.innerHTML = '';
+      bots.forEach((bot, i) => {
+        div.innerHTML += `<div class="bot">
+          <strong>Bot ${i+1}</strong><br>
+          Token: ${bot.token}<br>
+          Prefixe: ${bot.prefix}<br>
+          <button class="btn" onclick="supprimerBot(${i})">🗑 Supprimer</button>
+        </div>`;
+      });
+    }
+
+    function ajouterBot() {
+      const token = prompt("Entrer le token du bot:");
+      const prefix = prompt("Entrer le préfixe du bot:");
+      if (token && prefix) {
+        bots.push({ token, prefix });
+        afficherBots();
+      }
+    }
+
+    function supprimerBot(index) {
+      bots.splice(index, 1);
+      afficherBots();
+    }
+
+    afficherBots();
+  </script>
+</body>
+</html>￼Enter
